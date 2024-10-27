@@ -49,7 +49,6 @@ def getSudokuBoard() -> list[list[int]]:
     driver.minimize_window()
 
     driver.get("https://www.dailysudoku.com/sudoku/play.shtml?today=1")
-    time.sleep(10)
 
     try:
         squares = WebDriverWait(driver, 10).until(

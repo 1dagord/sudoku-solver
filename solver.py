@@ -39,7 +39,7 @@ def solveSudoku(board: list[list[str]], live=None) -> bool:
             # controls frequency of screen update
             # (speed of solver)
             iter_count += 1
-            if iter_count == 20:
+            if iter_count == 30:
                 updateDisplay(board, live)
                 iter_count = 0
             
