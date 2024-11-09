@@ -14,15 +14,17 @@ import time
 def getSudokuBoard() -> list[list[int]]:
     """
         Loads in sudoku board from Marty's Daily Sudoku website
+        Made to work with Safari, but can be adjusted
 
         :return: 9x9 sudoku board to be solved
     """
     board = []
     current_time = datetime.datetime.now()
-    current_date = int(str(current_time.year) +
-                       str(current_time.month) +
-                       str(current_time.day)
-                       )
+    current_date = int(
+                    str(current_time.year) +
+                    str(current_time.month).rjust(2, "0") +
+                    str(current_time.day).rjust(2, "0")
+                    )
     
     # check if most current board already obtained
     with open("daily_board.txt", "r") as file:
