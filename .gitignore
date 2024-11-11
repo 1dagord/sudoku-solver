@@ -166,8 +166,6 @@ cython_debug/
 # ignore jupyter notebooks
 *.ipynb
 
-# ignore `daily_board.txt`
-daily_board.txt
 
 # all test files
 *_test.py
