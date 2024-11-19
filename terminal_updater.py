@@ -6,7 +6,7 @@ from rich import box
 
 
 def updateDisplay(board: list[list[str]], live: Live) -> None:
-    digit_color = "cyan"
+    digit_colors = ["cyan", "bright_magenta"]
     empty_color = "red"
     
     table = Table(title="Sudoku Solver",
@@ -15,11 +15,14 @@ def updateDisplay(board: list[list[str]], live: Live) -> None:
                   box=box.MINIMAL
                   )
     
-    for row in board:
+    for i, row in enumerate(board):
         styles = []
-        for item in row:
+        for j, item in enumerate(row):
             if item.isdigit():
-                styles.append(f"[{digit_color}]{item}[/]")
+                if j // 3 == 1:
+                    styles.append(f"[{digit_colors[((i // 3) % 2 == 0)]}]{item}[/]")
+                else:
+                    styles.append(f"[{digit_colors[((i // 3) % 2 != 0)]}]{item}[/]")
             else:
                 styles.append(f"[{empty_color}]{item}[/]")
         table.add_row(*styles)
